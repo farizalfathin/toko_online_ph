@@ -7,7 +7,7 @@ import { supabase } from "../utils/SupClient";
 import ResponsivePage from "../components/product/Modal";
 import { useMedia } from "use-media";
 import { useSearchParams } from "react-router-dom";
-import AllProduct from "../components/product/AllPRoduct";
+import AllProduct from "../components/product/AllProduct";
 
 const ProductPage = () => {
   const [sortByName, setSortByName] = useState("");
