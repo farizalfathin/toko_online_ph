@@ -8,6 +8,7 @@ import ResponsivePage from "../components/product/Modal";
 import { useMedia } from "use-media";
 import { useSearchParams } from "react-router-dom";
 import AllProduct from "../components/product/AllProduct";
+import { Helmet } from "react-helmet-async";
 
 const ProductPage = () => {
   const [sortByName, setSortByName] = useState("");
@@ -68,6 +69,15 @@ const ProductPage = () => {
 
   return (
     <>
+      <Helmet>
+        {selectParam.get("search") ? (
+          <title>{`Search Product - ${product?.length}`}</title>
+        ) : isLoading ? (
+          <title>Loading....</title>
+        ) : (
+          <title>{`List Product - ${product?.length}`}</title>
+        )}
+      </Helmet>
       <Header />
       <main className="m-4 lg:flex max-lg:flex-col">
         {isSmallScreen ? (

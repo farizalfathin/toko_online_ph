@@ -5,7 +5,7 @@ import { useCart } from "../../utils/store/useCart";
 
 const Card = ({ id, nama_barang, foto_barang, harga, deskripsi }) => {
   const { user, id: userId } = useAuth();
-  const { addtocart } = useCart();
+  const { addtocart, fetchcart, incrementItem, decrementItem } = useCart();
   const tambahkeranjang = () => {
     addtocart({
       id_user: userId,
@@ -14,6 +14,7 @@ const Card = ({ id, nama_barang, foto_barang, harga, deskripsi }) => {
       jumlah: 1,
       harga: harga,
     });
+    fetchcart(userId);
   };
   return (
     <div>

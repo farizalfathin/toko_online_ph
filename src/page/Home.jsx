@@ -4,10 +4,14 @@ import ProductList from "../components/home/productlist";
 import Floatingbutton from "../components/tailus/Floatingbutton";
 import { Link } from "react-router-dom";
 import RenderList from "../utils/RenderList";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Toko Online - Home</title>
+      </Helmet>
       <Header />
       <main>
         <section className="px-4">

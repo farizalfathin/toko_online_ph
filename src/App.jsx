@@ -13,15 +13,19 @@ import Keranjang from "./components/Keranjang";
 import { useCart } from "./utils/store/useCart";
 import ProductPage from "./page/ProductPage";
 import Profile from "./page/ProfilePage";
+import HistoryPayment from "./page/HistoryPayment";
 
 const App = () => {
-  const { fetchUser } = useAuth();
+  const { fetchUser, id } = useAuth();
   const { fetchcart } = useCart();
 
   useEffect(() => {
     fetchUser();
-    fetchcart();
-  }, [fetchUser, fetchcart]);
+  }, [fetchUser]);
+
+  useEffect(() => {
+    fetchcart(id);
+  }, [fetchcart, id]);
 
   return (
     <BrowserRouter>
@@ -38,6 +42,7 @@ const App = () => {
         <Route element={<AuthRouter />}>
           <Route path="/profile" element={<Profile />} />
           <Route path="/keranjang" element={<Keranjang />} />
+          <Route path="/riwayat" element={<HistoryPayment />} />
         </Route>
       </Routes>
     </BrowserRouter>
